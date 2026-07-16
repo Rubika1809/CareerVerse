@@ -8,11 +8,11 @@ A comprehensive full-stack web application designed to help engineering students
 
 | **Student Dashboard** | **AI Resume Analyzer** |
 | :---: | :---: |
-| <img src="screenshots/student_dashboard.png" width="480" alt="Student Dashboard" /> | <img src="screenshots/resume_analyzer.png" width="480" alt="AI Resume Analyzer" /> |
+| <img src="https://raw.githubusercontent.com/Rubika1809/CareerVerse/main/screenshots/student_dashboard.png" width="480" alt="Student Dashboard" /> | <img src="https://raw.githubusercontent.com/Rubika1809/CareerVerse/main/screenshots/resume_analyzer.png" width="480" alt="AI Resume Analyzer" /> |
 
 | **Mock Interview Simulator** | **Admin Dashboard** |
 | :---: | :---: |
-| <img src="screenshots/mock_interview.png" width="480" alt="Mock Interview Simulator" /> | <img src="screenshots/admin_dashboard.png" width="480" alt="Admin Dashboard" /> |
+| <img src="https://raw.githubusercontent.com/Rubika1809/CareerVerse/main/screenshots/mock_interview.png" width="480" alt="Mock Interview Simulator" /> | <img src="https://raw.githubusercontent.com/Rubika1809/CareerVerse/main/screenshots/admin_dashboard.png" width="480" alt="Admin Dashboard" /> |
 
 ---
 
