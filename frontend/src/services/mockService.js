@@ -38,7 +38,7 @@ const seedDefaults = () => {
   if (!users.find(u => u.email === 'student@careerverse.com')) {
     users.push({
       id: 2,
-      name: 'Arjun Sharma',
+      name: 'Rubika V',
       email: 'student@careerverse.com',
       password: 'student123',
       role: 'STUDENT',
@@ -47,7 +47,7 @@ const seedDefaults = () => {
       year: '4th Year',
       cgpa: '8.4',
       phone: '+91-9876543210',
-      avatar: 'AS',
+      avatar: 'RV',
       placementProgress: 65,
       resumeScore: 78,
       joinedAt: new Date().toISOString(),
