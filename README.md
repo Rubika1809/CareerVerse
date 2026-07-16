@@ -6,17 +6,13 @@ A comprehensive full-stack web application designed to help engineering students
 
 ## 📸 Platform Outputs & Screenshots
 
-### 1. Student Dashboard
-![Student Dashboard](screenshots/student_dashboard.png)
+| **Student Dashboard** | **AI Resume Analyzer** |
+| :---: | :---: |
+| <img src="screenshots/student_dashboard.png" width="480" alt="Student Dashboard" /> | <img src="screenshots/resume_analyzer.png" width="480" alt="AI Resume Analyzer" /> |
 
-### 2. AI Resume Analyzer
-![AI Resume Analyzer](screenshots/resume_analyzer.png)
-
-### 3. Mock Interview Simulator
-![Mock Interview Simulator](screenshots/mock_interview.png)
-
-### 4. Admin Dashboard
-![Admin Dashboard](screenshots/admin_dashboard.png)
+| **Mock Interview Simulator** | **Admin Dashboard** |
+| :---: | :---: |
+| <img src="screenshots/mock_interview.png" width="480" alt="Mock Interview Simulator" /> | <img src="screenshots/admin_dashboard.png" width="480" alt="Admin Dashboard" /> |
 
 ---
 
