@@ -1,0 +1,33 @@
+.interview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+}
+
+.timer-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-50);
+  color: var(--primary-dark);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary-200);
+  transition: all 0.3s ease;
+}
+
+.timer-danger {
+  background: var(--danger-light);
+  color: var(--danger);
+  border-color: #FECACA;
+  animation: pulse 1s infinite;
+}
+
+.question-box {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 2rem;
+}
