@@ -42,7 +42,7 @@ const seedDefaults = () => {
       email: 'student@careerverse.com',
       password: 'student123',
       role: 'STUDENT',
-      college: 'VJTI Mumbai',
+      college: 'Rathinam Global University',
       branch: 'Computer Engineering',
       year: '4th Year',
       cgpa: '8.4',

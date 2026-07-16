@@ -140,7 +140,7 @@ export default function Register() {
                   <div className="input-icon-wrapper">
                     <MdEmail className="input-icon" size={18} />
                     <input id="reg-email" type="email" className={`form-control input-with-icon ${errors.email ? 'error' : ''}`}
-                      placeholder="you@college.edu" value={form.email} onChange={e => update('email', e.target.value)} />
+                      placeholder="you@rathinam.edu" value={form.email} onChange={e => update('email', e.target.value)} />
                   </div>
                   {errors.email && <span className="form-error">{errors.email}</span>}
                 </div>
@@ -184,7 +184,7 @@ export default function Register() {
                     <div className="input-icon-wrapper">
                       <MdSchool className="input-icon" size={18} />
                       <input id="reg-college" type="text" className={`form-control input-with-icon ${errors.college ? 'error' : ''}`}
-                        placeholder="e.g., VJTI Mumbai" value={form.college} onChange={e => update('college', e.target.value)} />
+                        placeholder="e.g., Rathinam Global University" value={form.college} onChange={e => update('college', e.target.value)} />
                     </div>
                     {errors.college && <span className="form-error">{errors.college}</span>}
                   </div>
@@ -211,7 +211,7 @@ export default function Register() {
                     <div className="input-icon-wrapper">
                       <MdSchool className="input-icon" size={18} />
                       <input id="reg-college" type="text" className={`form-control input-with-icon ${errors.college ? 'error' : ''}`}
-                        placeholder="e.g., VJTI Mumbai" value={form.college} onChange={e => update('college', e.target.value)} />
+                        placeholder="e.g., Rathinam Global University" value={form.college} onChange={e => update('college', e.target.value)} />
                     </div>
                     {errors.college && <span className="form-error">{errors.college}</span>}
                   </div>
