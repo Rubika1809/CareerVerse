@@ -37,8 +37,8 @@ export default function Register() {
 
   const validateStep2 = () => {
     const e = {};
-    if (!form.college.trim()) e.college = 'College name is required';
-    if (!form.branch.trim()) e.branch = 'Branch is required';
+    if (!form.college.trim()) e.college = role === 'ADMIN' ? 'Institution name is required' : 'College name is required';
+    if (!form.branch.trim()) e.branch = role === 'ADMIN' ? 'Department is required' : 'Branch is required';
     return e;
   };
 
@@ -92,7 +92,7 @@ export default function Register() {
         <div className="auth-card">
           <div className="auth-card-header">
             <h2>Create Account</h2>
-            <p>Step {step} of 2 – {step === 1 ? 'Basic Information' : 'Academic Details'}</p>
+            <p>Step {step} of 2 – {step === 1 ? 'Basic Information' : (role === 'ADMIN' ? 'Organisation Details' : 'Academic Details')}</p>
           </div>
 
           {/* Progress */}
@@ -175,53 +175,86 @@ export default function Register() {
 
           {step === 2 && (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div className="form-group">
-                <label className="form-label" htmlFor="reg-college">College / University</label>
-                <div className="input-icon-wrapper">
-                  <MdSchool className="input-icon" size={18} />
-                  <input id="reg-college" type="text" className={`form-control input-with-icon ${errors.college ? 'error' : ''}`}
-                    placeholder="e.g., VJTI Mumbai" value={form.college} onChange={e => update('college', e.target.value)} />
-                </div>
-                {errors.college && <span className="form-error">{errors.college}</span>}
-              </div>
 
-              <div className="form-group">
-                <label className="form-label" htmlFor="reg-branch">Branch / Department</label>
-                <select id="reg-branch" className={`form-control ${errors.branch ? 'error' : ''}`}
-                  value={form.branch} onChange={e => update('branch', e.target.value)}>
-                  <option value="">Select Branch</option>
-                  {['Computer Engineering', 'Information Technology', 'Electronics & Telecommunication', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Data Science', 'AI & ML', 'Other'].map(b => (
-                    <option key={b} value={b}>{b}</option>
-                  ))}
-                </select>
-                {errors.branch && <span className="form-error">{errors.branch}</span>}
-              </div>
+              {/* ── ADMIN: minimal org fields only ── */}
+              {role === 'ADMIN' && (
+                <>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="reg-college">Institution / Organisation</label>
+                    <div className="input-icon-wrapper">
+                      <MdSchool className="input-icon" size={18} />
+                      <input id="reg-college" type="text" className={`form-control input-with-icon ${errors.college ? 'error' : ''}`}
+                        placeholder="e.g., VJTI Mumbai" value={form.college} onChange={e => update('college', e.target.value)} />
+                    </div>
+                    {errors.college && <span className="form-error">{errors.college}</span>}
+                  </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="reg-year">Current Year</label>
-                  <select id="reg-year" className="form-control" value={form.year} onChange={e => update('year', e.target.value)}>
-                    <option value="">Select Year</option>
-                    {['1st Year', '2nd Year', '3rd Year', '4th Year', 'Graduate'].map(y => (
-                      <option key={y} value={y}>{y}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="reg-cgpa">CGPA</label>
-                  <input id="reg-cgpa" type="number" step="0.01" min="0" max="10" className="form-control"
-                    placeholder="e.g., 8.5" value={form.cgpa} onChange={e => update('cgpa', e.target.value)} />
-                </div>
-              </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="reg-branch">Department / Role</label>
+                    <select id="reg-branch" className={`form-control ${errors.branch ? 'error' : ''}`}
+                      value={form.branch} onChange={e => update('branch', e.target.value)}>
+                      <option value="">Select Department</option>
+                      {['Training & Placement Cell', 'Computer Science Dept.', 'Information Technology Dept.', 'Electronics Dept.', 'Administration', 'Academic Affairs', 'Other'].map(d => (
+                        <option key={d} value={d}>{d}</option>
+                      ))}
+                    </select>
+                    {errors.branch && <span className="form-error">{errors.branch}</span>}
+                  </div>
+                </>
+              )}
 
-              <div className="form-group">
-                <label className="form-label" htmlFor="reg-phone">Phone Number (Optional)</label>
-                <div className="input-icon-wrapper">
-                  <MdPhone className="input-icon" size={18} />
-                  <input id="reg-phone" type="tel" className="form-control input-with-icon"
-                    placeholder="+91-XXXXXXXXXX" value={form.phone} onChange={e => update('phone', e.target.value)} />
-                </div>
-              </div>
+              {/* ── STUDENT: full academic profile ── */}
+              {role === 'STUDENT' && (
+                <>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="reg-college">College / University</label>
+                    <div className="input-icon-wrapper">
+                      <MdSchool className="input-icon" size={18} />
+                      <input id="reg-college" type="text" className={`form-control input-with-icon ${errors.college ? 'error' : ''}`}
+                        placeholder="e.g., VJTI Mumbai" value={form.college} onChange={e => update('college', e.target.value)} />
+                    </div>
+                    {errors.college && <span className="form-error">{errors.college}</span>}
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="reg-branch">Branch / Department</label>
+                    <select id="reg-branch" className={`form-control ${errors.branch ? 'error' : ''}`}
+                      value={form.branch} onChange={e => update('branch', e.target.value)}>
+                      <option value="">Select Branch</option>
+                      {['Computer Engineering', 'Information Technology', 'Electronics & Telecommunication', 'Mechanical Engineering', 'Civil Engineering', 'Electrical Engineering', 'Data Science', 'AI & ML', 'Other'].map(b => (
+                        <option key={b} value={b}>{b}</option>
+                      ))}
+                    </select>
+                    {errors.branch && <span className="form-error">{errors.branch}</span>}
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="reg-year">Current Year</label>
+                      <select id="reg-year" className="form-control" value={form.year} onChange={e => update('year', e.target.value)}>
+                        <option value="">Select Year</option>
+                        {['1st Year', '2nd Year', '3rd Year', '4th Year', 'Graduate'].map(y => (
+                          <option key={y} value={y}>{y}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label" htmlFor="reg-cgpa">CGPA</label>
+                      <input id="reg-cgpa" type="number" step="0.01" min="0" max="10" className="form-control"
+                        placeholder="e.g., 8.5" value={form.cgpa} onChange={e => update('cgpa', e.target.value)} />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="reg-phone">Phone Number (Optional)</label>
+                    <div className="input-icon-wrapper">
+                      <MdPhone className="input-icon" size={18} />
+                      <input id="reg-phone" type="tel" className="form-control input-with-icon"
+                        placeholder="+91-XXXXXXXXXX" value={form.phone} onChange={e => update('phone', e.target.value)} />
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div style={{ display: 'flex', gap: '0.75rem' }}>
                 <button type="button" className="btn btn-secondary" style={{ flex: '0 0 auto' }} onClick={() => setStep(1)}>← Back</button>
